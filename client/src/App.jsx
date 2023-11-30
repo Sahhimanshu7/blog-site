@@ -1,8 +1,13 @@
+import './assets/global.css';
+import { Header } from './components/head/Header';
+import { Pages } from './pages/index';
+
 function App() {
   return (
-    <>
-      <p>Hello World !</p>
-    </>
+    <div className = 'main'>
+      <Header />
+      <Pages />
+    </div>
   )
 }
 
