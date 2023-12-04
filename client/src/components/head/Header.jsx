@@ -1,3 +1,9 @@
+import { Search } from "./Search"
+
 export const Header = () =>{
-    return (<p>Head</p>)
+    return (
+        <>
+            <Search />
+        </>
+        )
 }
