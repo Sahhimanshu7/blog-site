@@ -1,13 +1,12 @@
-import './assets/global.css';
-import { Header } from './components/head/Header';
-import { Pages } from './pages/index';
+import { useState } from 'react'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className = 'main'>
-      <Header />
-      <Pages />
-    </div>
+    <>
+      <p className='text-3xl'>Hello BLog</p>
+    </>
   )
 }
 
