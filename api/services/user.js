@@ -27,7 +27,7 @@ export const signUpUser = async (req, res, next) => {
     // creating the user
         try {
           const newUser = new User({
-            userName: req.body.userName,
+            username: req.body.username,
             password: hashedPassword,
             email: req.body.email
           });
