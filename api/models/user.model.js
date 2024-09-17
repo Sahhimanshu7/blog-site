@@ -7,25 +7,22 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
 
-  Id: {
+  picture: {
     type: String,
-    required: true,
-    unique: true
+    default: 
+      ""
   },
 
   firstname: {
     type: String,
-    required: true
   },
 
   lastname: {
     type: String,
-    required: true
   },
 
   DOB: {
     type: Date,
-    required: true
   },
 
   location: {

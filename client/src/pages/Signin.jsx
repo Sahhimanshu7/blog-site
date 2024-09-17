@@ -24,7 +24,7 @@ const Signin = () => {
       dispatch(signInStart());
       setLoading(true);
       setErrorMessage(null);
-      const user = await axios.post('/api/user/login/',{
+      const user = await axios.post('/api/user/login',{
         username: username,
         password: password,
       });

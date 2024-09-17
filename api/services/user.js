@@ -1,8 +1,10 @@
 import bcryptjs from 'bcryptjs';
+
 import User from '../models/user.model.js';
 import { errorHandler } from '../utils/error.js';
+import generateToken from "../config/generateToken.js";
 
-const searchUser = async (username) => {
+export const searchUser = async (username) => {
   try {
     const user = await User.findOne({ username: username});
     if(user) return true;
@@ -17,7 +19,16 @@ export const loginUser = async (req, res, next) => {
     const { username, password } = req.body;
 
     if(searchUser(username)) {
-
+      try {
+        const user = await User.findOne({ username: username});
+        bcryptjs.compare(password, user.password);
+        res.status(200).json({
+          user,
+          token: generateToken(user._id)
+        });
+      } catch (error) {
+        res.status(400).json("Password isn't correct.") 
+      }
     } else {
       res.status(400).json("Username not found!");
     }
@@ -36,15 +47,19 @@ export const signUpUser = async (req, res, next) => {
           const newUser = new User({
             username: req.body.username,
             password: hashedPassword,
-            email: req.body.email
+            email: req.body.email,
           });
           const user = await newUser.save();
-          res.status(200).json(user);
+          res.status(201).json({ 
+            user,
+            token: generateToken(user._id) 
+          });
         } catch (error) {
           throw new Error("Error with creating newUser " + error);
       }
   } catch (error) {
-    next(errorHandler(500, error));
+    console.log(error);
+    next(errorHandler(500, "Username or password already exists."));
   }
 }
 
