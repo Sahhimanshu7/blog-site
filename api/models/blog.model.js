@@ -17,7 +17,24 @@ const blogSchema = new mongoose.Schema({
         ""
     },
 
-    
+    body: {
+        type: String,
+        required: true
+    },
+
+    likesCount: {
+        type: Number,
+        default: 0
+    },
+
+    commentIds: {
+        type: String
+    },
+
+    authorId: {
+        type: String,
+        required: true
+    }
 }, { timestamps: true });
 
 const Blog = mongoose.model('Blog', blogSchema);
