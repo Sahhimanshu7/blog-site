@@ -22,6 +22,11 @@ const blogSchema = new mongoose.Schema({
         required: true
     },
 
+    category: {
+        type: String,
+        required: true
+    },
+
     likesCount: {
         type: Number,
         default: 0

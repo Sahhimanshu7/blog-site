@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import "./config/mongo.js";
 
 import userRouter from "./routes/user.routes.js";
+import blogRoutes from "./routes/blog.routes.js";
 
 const app = express();
 
@@ -23,6 +24,7 @@ const PORT = process.env.PORT || 3000;
 
 //implmenting routes
 app.use('/api/user/', userRouter);
+app.use('/api/blog/', blogRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
