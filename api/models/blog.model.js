@@ -33,7 +33,7 @@ const blogSchema = new mongoose.Schema({
     },
 
     commentIds: {
-        type: String
+        type: Array
     },
 
     authorId: {

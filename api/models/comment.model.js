@@ -19,10 +19,10 @@ const commentSchema = new mongoose.Schema({
     nextCommentId: {
         type: String,
         default: null
-    }
+    },
 },
 {timestamps: true});
 
-const Comment = mongoose.model("Comment", CommentSchema);
+const Comment = mongoose.model("Comment", commentSchema);
 
 export default Comment;

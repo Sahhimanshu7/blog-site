@@ -6,6 +6,7 @@ import "./config/mongo.js";
 
 import userRouter from "./routes/user.routes.js";
 import blogRoutes from "./routes/blog.routes.js";
+import commentRoutes from "./routes/comment.routes.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ const PORT = process.env.PORT || 3000;
 //implmenting routes
 app.use('/api/user/', userRouter);
 app.use('/api/blog/', blogRoutes);
+app.use('/api/comment/', commentRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
