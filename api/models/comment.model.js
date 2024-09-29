@@ -16,9 +16,8 @@ const commentSchema = new mongoose.Schema({
         default: 0
     },
 
-    nextCommentId: {
-        type: String,
-        default: null
+    nextCommentIds: {
+        type: Array
     },
 },
 {timestamps: true});
