@@ -1,0 +1,16 @@
+services:
+  blog-site-client:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.reactUI
+    ports:
+      - "5173:5173"
+    depends_on:
+      - blog-site-api
+
+  blog-site-api:
+    build: 
+      context: ./api
+      dockerfile: Dockerfile.node 
+    ports:
+      - "8080:8080"

@@ -60,3 +60,21 @@ export const createCommentOnComment = async (req, res, next) => {
 }
 
 // read the comment
+export const readComment = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        try {
+            const comment = Comment.findById(id);
+            if(comment) {
+                res.status(200).json(comment);
+            } else {
+                res.status(400).json("Comment with id : " + id + " wasn't found.");
+            }
+        } catch (error) {
+            throw new Error("Error reading the comment " + error);
+        }
+    } catch (error) {
+        next(errorHandler(500, error));
+    }
+}
