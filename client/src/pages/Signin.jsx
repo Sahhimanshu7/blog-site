@@ -41,6 +41,7 @@ const Signin = () => {
       }
     } catch (error) {
       console.log(error);
+      setLoading(false);
       setErrorMessage("Couldn't login")
     }
   }

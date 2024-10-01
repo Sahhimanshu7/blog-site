@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
-import Projects from "./pages/Projects";
 import FooterCom from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
+import Saved from "./pages/Saved";
+import MyBlogs from "./pages/MyBlogs";
 
 function App() {
 
@@ -16,8 +16,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/my-blogs" element={<MyBlogs />} />
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/sign-up" element={<Signup />} />
         <Route element={<PrivateRoute />}>
